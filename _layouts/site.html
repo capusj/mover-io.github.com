@@ -1,7 +1,27 @@
 {% include top.html %}
-<body>
-  <div class="container">
-    {{ content }}
+<body class="p-t-lg">
+  <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-mover">
+    <div class="container">
+      <a class="navbar-brand" href="{{ site.url }}"><img src="{{ site.url }}/img/logo.svg" alt="Mover Logo"></a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Connectors <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <a href="https://app.mover.io" class="btn btn-primary-outline pull-right">Login</a>
+      <a href="https://app.mover.io" class="btn btn-success pull-right m-r">Create Account</a>
+    </div>
+  </nav>
+  <div class="content">
+    <div class="container-fluid">
+      {{ content }}
+    </div>
   </div>
   
   {% include footer.html %}
