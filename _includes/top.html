@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <link rel="icon" type="image/png" href="{{ site.url }}/img/favicon.png">
+
+    <title>{% if page.html_title %}{{ page.html_title }}{% else %}Backup, Copy, and Migrate Files Between Cloud Storage Services{% endif %} • Mover</title>
+
+    <!-- Facebook/OpenGraph tags so we show up right in Facebook links/shares -->
+    <meta property="fb:app_id"      content="256846904417736">
+    <meta property="og:type"        content="website">
+    <meta property="og:image"       content="{{ site.url }}/img/logo-facebook-2138x630.png">
+    <meta property="og:url"         content="https://mover.io">
+    <meta property="og:title"       content="Mover">
+    <meta property="og:site_name"   content="Mover">
+    <meta property="og:description" content="The smarter way to move files. FTP, Dropbox, Box, GoogleDrive, Copy, Egnyte, Amazon S3, SharePoint, MySQL the list goes on!">
+    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ site.url }}/css/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="{{ site.url }}/css/style.css">

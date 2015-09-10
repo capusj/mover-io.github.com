@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <title>Backup, Copy, and Migrate Files Between Cloud Storage Services • Mover</title>
+
+    <!-- Facebook/OpenGraph tags so we show up right in Facebook links/shares -->
+    <meta property="fb:app_id"      content="256846904417736">
+    <meta property="og:type"        content="website">
+    <meta property="og:image"       content="/img/logo-facebook-2138x630.png">
+    <meta property="og:url"         content="https://mover.io">
+    <meta property="og:title"       content="Mover">
+    <meta property="og:site_name"   content="Mover">
+    <meta property="og:description" content="The smarter way to move files. FTP, Dropbox, Box, GoogleDrive, Copy, Egnyte, Amazon S3, SharePoint, MySQL the list goes on!">
+    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="/css/style.css">
@@ -14,85 +28,88 @@
 <body class="p-t-lg">
   <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-mover">
     <div class="container">
-      <a class="navbar-brand" href=""><img src="/img/logo.svg" alt="Mover Logo"></a>
+      <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="Mover Logo"></a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">Connectors</a>
+          <a class="nav-link" href="/connectors">Connectors</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Services</a>
+          <a class="nav-link" href="/services">Services</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="/pricing">Pricing</a>
         </li>
       </ul>
       <a href="https://app.mover.io" class="btn btn-primary-outline pull-right">Login</a>
       <a href="https://app.mover.io" class="btn btn-success pull-right m-r">Create Account</a>
     </div>
   </nav>
-  <div class="content">
-    <div class="container-fluid">
-      <div class="container homepage">
-  <div class="row p-y-lg">
-    <div class="col-xs-10 col-xs-offset-1">
-      <h1 class="text-center text-uppercase index-title">Don't Let Your Data Slow You Down</h1>
+  
+  <div class="content-blue">
+  <div class="container-fluid">
+    <div class="container homepage">
+      <div class="row p-y-lg">
+        <div class="col-xs-10 col-xs-offset-1">
+          <h1 class="text-center text-uppercase page-title">Don't Let Your Data Slow You Down</h1>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="row p-y-lg">
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img class="media-object" src="/img/secure.png">
+    <div class="container homepage">
+      <div class="row p-y-lg">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="media">
+              <div class="media-left media-middle">
+                <img class="media-object" src="/img/secure.png">
+              </div>
+              <div class="media-body">
+                <h3 class="card-title text-uppercase">Backups</h3>
+                <p class="card-text">Our End-to-End encryption gets all of your data where you need it safe and sound.</p>
+              </div>
+            </div>
           </div>
-          <div class="media-body">
-            <h3 class="card-title text-uppercase">Backups</h3>
-            <p class="card-text">Our End-to-End encryption gets all of your data where you need it safe and sound.</p>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="media">
+              <div class="media-left media-middle">
+                <img class="media-object" src="/img/fast.png">
+              </div>
+              <div class="media-body">
+                <h3 class="card-title text-uppercase">Migrations</h3>
+                <p class="card-text">Our Cloud Data Migration System gets all of your data where you need it in one piece.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="media">
+              <div class="media-left media-middle">
+                <img class="media-object" src="/img/migrate.png">
+              </div>
+              <div class="media-body">
+                <h3 class="card-title text-uppercase">Transfers</h3>
+                <p class="card-text">Our Cloud-to-Cloud throughput gets all of your data where you need it lightning fast.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img class="media-object" src="/img/fast.png">
-          </div>
-          <div class="media-body">
-            <h3 class="card-title text-uppercase">Migrations</h3>
-            <p class="card-text">Our Cloud Data Migration System gets all of your data where you need it in one piece.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <div class="card">
-        <div class="media">
-          <div class="media-left media-middle">
-            <img class="media-object" src="/img/migrate.png">
-          </div>
-          <div class="media-body">
-            <h3 class="card-title text-uppercase">Transfers</h3>
-            <p class="card-text">Our Cloud-to-Cloud throughput gets all of your data where you need it lightning fast.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="row p-y-lg index-cta">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-      <p class="text-right">Get your data where you want it, when you need it. Use Mover.</p>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <a href="https://app.mover.io" class="btn btn-lg btn-success btn-block index-cta">Start Now</a>
+      <div class="row p-y-lg index-cta">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+          <p class="text-right">Get your data where you want it, when you need it. Use Mover.</p>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <a href="https://app.mover.io" class="btn btn-lg btn-success btn-block index-cta">Start Now</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-    </div>
-  </div>
+  
   
   <footer>
   <div class="container">
@@ -138,6 +155,7 @@
   <!-- jQuery first, then Bootstrap JS. -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="/css/boostrap/dist/js/boostrap.min.js"></script>
+  <script src="/js/main.js"></script>
 
 
 </body>

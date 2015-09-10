@@ -14,7 +14,8 @@ body {
 
 nav.navbar-mover {
   background: #fff;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
   nav.navbar-mover .nav-link {
     color: #0076BD;
     padding-left: 2em; }
@@ -22,7 +23,8 @@ nav.navbar-mover {
 .navbar-brand {
   width: 7.5em; }
 
-.content {
+.content-blue {
+  position: relative;
   display: flex;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -33,15 +35,28 @@ nav.navbar-mover {
   -webkit-align-items: center;
   -webkit-box-align: center;
   justify-content: center;
-  background-color: #0076bd;
+  background-color: #0076BD;
   background-image: url(../img/grain.png);
   background-size: 128px;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
+  .content-blue:after {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 0;
+    margin: 0 auto;
+    margin-left: -20px;
+    border-style: solid;
+    border-width: 0 20px 12px 20px;
+    border-color: transparent transparent #fff transparent; }
 
-.homepage .index-title {
+.page-title {
   font-weight: 100;
   font-size: 4em; }
+
 .homepage .card {
   border: 0; }
   .homepage .card img {
@@ -56,6 +71,22 @@ nav.navbar-mover {
 .homepage .index-cta {
   font-size: 1.3em; }
 
+h2, h3, h4 {
+  font-weight: 300;
+  text-transform: uppercase;
+  white-space: normal;
+  color: #0076BD; }
+
+h2 {
+  border-bottom: 1px solid #0076BD;
+  margin-bottom: 1em; }
+
+.services-icon {
+  width: 90px;
+  display: block;
+  border-radius: 45px;
+  margin: 30px auto 0 auto; }
+
 footer .card {
   border: 0; }
   footer .card .card-title {
@@ -64,5 +95,45 @@ footer .card {
     color: #0076BD; }
   footer .card a {
     color: inherit; }
+
+.container-count {
+  color: #fff;
+  background-color: #0076bd;
+  background-image: url(../img/grain.png);
+  background-size: 128px; }
+  @media (max-width: 768px) {
+    .container-count {
+      padding: 1em 1.5em; } }
+  .container-count .files-moved {
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255, 200, 255, 0.2);
+    background-image: url(../img/grain_light.png);
+    padding: 1.8em 2.5em; }
+    .container-count .files-moved .file-counter {
+      -webkit-backface-visibility: hidden;
+      -webkit-transition: translate3d(0, 0, 0); }
+      @media (max-width: 768px) {
+        .container-count .files-moved .file-counter {
+          font-size: .7em; } }
+      @media (min-width: 769px) and (max-width: 991px) {
+        .container-count .files-moved .file-counter {
+          font-size: 1em; } }
+      .container-count .files-moved .file-counter span {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1em;
+        display: inline-block;
+        width: .65em;
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: translate3d(0, 0, 0); }
+        .container-count .files-moved .file-counter span:nth-child(2), .container-count .files-moved .file-counter span:nth-child(6), .container-count .files-moved .file-counter span:nth-child(10) {
+          width: .35em; }
+    .container-count .files-moved .count-label {
+      font-size: 1.5em;
+      font-weight: 100; }
+      @media (max-width: 768px) {
+        .container-count .files-moved .count-label {
+          font-size: .9em; } }
 
 /*# sourceMappingURL=style.css.map */

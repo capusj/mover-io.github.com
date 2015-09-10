@@ -1,0 +1,49 @@
+.container-count { // bottom of regular content pages
+  color: #fff;
+  background-color: #0076bd;
+  background-image: url(../img/grain.png);
+  background-size: 128px;
+  @media #{$xs} {
+    padding: 1em 1.5em;
+  }
+
+  .files-moved { //all counters
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255,200,255,0.2);
+    background-image: url(../img/grain_light.png);
+    padding: 1.8em 2.5em;
+    .file-counter {
+      -webkit-backface-visibility: hidden;
+      -webkit-transition: translate3d(0,0,0);
+      @media #{$xs} {
+        font-size: .7em;
+      }
+      @media #{$sm} {
+        font-size: 1em;
+      }
+      span {
+        font-size: 4em;
+        font-weight: 700;
+        line-height: 1em;
+        display: inline-block;
+        width: .65em;
+        -webkit-backface-visibility: hidden;
+        -webkit-transition: translate3d(0,0,0);
+        &:nth-child(2),
+        &:nth-child(6),
+        &:nth-child(10) {
+          width: .35em;
+        }
+      }
+      
+    }
+    .count-label {
+      font-size: 1.5em;
+      font-weight: 100;
+      @media #{$xs} {
+        font-size: .9em;
+      }
+    }
+  }
+}
