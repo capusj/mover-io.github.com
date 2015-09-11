@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 	  var FileCounter = (function() {
+      /* Requires Sugarjs */
 	    function FileCounter(baseElement) {
 	      this.step = __bind(this.step, this);
 	      var _this = this;

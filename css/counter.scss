@@ -9,10 +9,10 @@
 
   .files-moved { //all counters
     text-align: center;
-    border-radius: 10px;
+    border-radius: 0.5em;
     background-color: rgba(255,200,255,0.2);
     background-image: url(../img/grain_light.png);
-    padding: 1.8em 2.5em;
+    padding: 0.9em 3em;
     .file-counter {
       -webkit-backface-visibility: hidden;
       -webkit-transition: translate3d(0,0,0);
@@ -23,7 +23,7 @@
         font-size: 1em;
       }
       span {
-        font-size: 4em;
+        font-size: 3.5em;
         font-weight: 700;
         line-height: 1em;
         display: inline-block;
@@ -41,6 +41,7 @@
     .count-label {
       font-size: 1.5em;
       font-weight: 100;
+      text-shadow: none;
       @media #{$xs} {
         font-size: .9em;
       }
