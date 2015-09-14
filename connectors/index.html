@@ -1,0 +1,50 @@
+---
+layout: content-page
+title: Connectors
+html_title: Connectors
+---
+
+<div class="container content-main">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="connector-card-columns">
+        {% for connector in site.categories.connectors %}
+          <a href="{{ connector.url }}">
+            <div class="card text-center">
+              <!-- <div class="card-header">
+                Featured
+              </div> -->
+              <div class="card-img">
+                <img src="{{ site.url }}/img/connectors/black/{{ connector.image-name }}">
+              </div>
+
+              <div class="card-footer text-muted">
+                {{ connector.name }}
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 m-t-md">
+      <h2>24 AND COUNTING</h2>
+      <p>Mover currently connects to 24 cloud service providers, web services and databases. We lovingly refer to these sites as our Connectors.</p>
+
+      <p>Be sure to check back here as we’re always adding new connectors. Our team can also investigate new integrations, so if you don’t see the provider you’re looking for, please vote for it at support.mover.io.</p>
+
+      <p>There are countless reasons to use our connector integrations, here are just a few of our favourites:</p>
+
+      <ul>
+        <li>Migrate multiple users and large data volumes to the cloud quickly, easily and securely</li>
+        <li>Save bandwidth by copying files through our service vs using a desktop sync tool</li>
+        <li>Share large files with family, friends and colleagues</li>
+        <li>Backup cloud files to another cloud or on premise servers to ensure compliance</li>
+        <li>Backup your web site</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
