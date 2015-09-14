@@ -1,1 +1,7 @@
 exclude: [css/bootstrap/grunt,css/bootstrap/node_modules,css/bootstrap/scss,css/bootstrap/test-infra]
+
+sass:
+    sass_dir: css
+
+gems:
+  - jekyll-redirect-from

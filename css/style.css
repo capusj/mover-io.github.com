@@ -1,142 +1,46 @@
-html {
-  position: relative;
-  min-height: 100%; }
+/*
+Error: Invalid CSS after "@import 'defaults'": expected "{", was ";"
+        on line 4 of style.scss
 
-body {
-  display: flex;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  min-height: 100vh;
-  flex-direction: column;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  font-weight: 300; }
+1: ---
+2: ---
+3: 
+4: @import 'defaults';
+5: 
+6: $mover-blue: #0076BD;
+7: 
+8: html {
+9:   position: relative;
 
-nav.navbar-mover {
-  background: #fff;
-  text-transform: uppercase;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
-  nav.navbar-mover .nav-link {
-    color: #0076BD;
-    padding-left: 2em; }
-
-.navbar-brand {
-  width: 7.5em; }
-
-.content-blue {
-  position: relative;
-  display: flex;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  justify-content: center;
-  background-color: #0076BD;
-  background-image: url(../img/grain.png);
-  background-size: 128px;
-  color: #fff;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); }
-  .content-blue:after {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    content: "";
-    width: 0;
-    height: 0;
-    margin: 0 auto;
-    margin-left: -20px;
-    border-style: solid;
-    border-width: 0 20px 12px 20px;
-    border-color: transparent transparent #fff transparent; }
-
-.page-title {
-  font-weight: 100;
-  font-size: 4em; }
-
-.homepage .card {
-  border: 0; }
-  .homepage .card h3 {
-    color: #fff; }
-  .homepage .card img {
-    display: inline-block;
-    background-position: center center;
-    background-size: cover;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.7);
-    border: 1px solid #fff; }
-.homepage .index-cta {
-  font-size: 1.3em; }
-
-h2, h3, h4 {
-  font-weight: 300;
-  text-transform: uppercase;
-  white-space: normal;
-  color: #0076BD; }
-
-h2 {
-  border-bottom: 1px solid #0076BD;
-  margin-bottom: 1em; }
-
-.services-icon {
-  width: 90px;
-  display: block;
-  border-radius: 45px;
-  margin: 30px auto 0 auto; }
-
-footer .card {
-  border: 0; }
-  footer .card .card-title {
-    font-weight: 300;
-    font-size: 1.3em;
-    color: #0076BD; }
-  footer .card a {
-    color: inherit; }
-
-.container-count {
-  color: #fff;
-  background-color: #0076bd;
-  background-image: url(../img/grain.png);
-  background-size: 128px; }
-  @media (max-width: 768px) {
-    .container-count {
-      padding: 1em 1.5em; } }
-  .container-count .files-moved {
-    text-align: center;
-    border-radius: 0.5em;
-    background-color: rgba(255, 200, 255, 0.2);
-    background-image: url(../img/grain_light.png);
-    padding: 0.9em 3em; }
-    .container-count .files-moved .file-counter {
-      -webkit-backface-visibility: hidden;
-      -webkit-transition: translate3d(0, 0, 0); }
-      @media (max-width: 768px) {
-        .container-count .files-moved .file-counter {
-          font-size: .7em; } }
-      @media (min-width: 769px) and (max-width: 991px) {
-        .container-count .files-moved .file-counter {
-          font-size: 1em; } }
-      .container-count .files-moved .file-counter span {
-        font-size: 3.5em;
-        font-weight: 700;
-        line-height: 1em;
-        display: inline-block;
-        width: .65em;
-        -webkit-backface-visibility: hidden;
-        -webkit-transition: translate3d(0, 0, 0); }
-        .container-count .files-moved .file-counter span:nth-child(2), .container-count .files-moved .file-counter span:nth-child(6), .container-count .files-moved .file-counter span:nth-child(10) {
-          width: .35em; }
-    .container-count .files-moved .count-label {
-      font-size: 1.5em;
-      font-weight: 100;
-      text-shadow: none; }
-      @media (max-width: 768px) {
-        .container-count .files-moved .count-label {
-          font-size: .9em; } }
-
-/*# sourceMappingURL=style.css.map */
+Backtrace:
+style.scss:4
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:1162:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:1098:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:1093:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:638:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:632:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:657:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:647:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/engine.rb:403:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/lib/sass/plugin/compiler.rb:328:in `block in watch'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:252:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:252:in `on_change'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapter.rb:254:in `call'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.18/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"@import 'defaults'\": expected \"{\", was \";\"\A         on line 4 of style.scss\A \A 1: ---\A 2: ---\A 3: \A 4: @import 'defaults';\A 5: \A 6: $mover-blue: #0076BD;\A 7: \A 8: html {\A 9:   position: relative;"; }
