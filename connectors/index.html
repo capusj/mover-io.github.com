@@ -8,14 +8,14 @@ html_title: Connectors
   <div class="row">
     <div class="col-xs-12">
       <div class="connector-card-columns">
-        {% for connector in site.categories.connectors %}
+        {% for connector in site.categories.connectors reversed %}
           <a href="{{ connector.url }}">
             <div class="card text-center">
               <!-- <div class="card-header">
                 Featured
               </div> -->
               <div class="card-img">
-                <img src="{{ site.url }}/img/connectors/black/{{ connector.image-name }}">
+                <img src="{{ site.url }}/img/connectors/colour/{{ connector.image-name }}">
               </div>
 
               <div class="card-footer text-muted">
@@ -33,7 +33,7 @@ html_title: Connectors
       <h2>24 AND COUNTING</h2>
       <p>Mover currently connects to 24 cloud service providers, web services and databases. We lovingly refer to these sites as our Connectors.</p>
 
-      <p>Be sure to check back here as we’re always adding new connectors. Our team can also investigate new integrations, so if you don’t see the provider you’re looking for, please vote for it at support.mover.io.</p>
+      <p>Be sure to check back here as we’re always adding new connectors. Our team can also investigate new integrations, so if you don’t see the provider you’re looking for, please vote for it at <a target="_blank" href="http://support.mover.io">support.mover.io.</a></p>
 
       <p>There are countless reasons to use our connector integrations, here are just a few of our favourites:</p>
 

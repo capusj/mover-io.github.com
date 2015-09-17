@@ -181,6 +181,9 @@ footer .card {
 
 .connector-card-columns {
   margin-left: -1%; }
+  .connector-card-columns a:hover {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%); }
   .connector-card-columns .card {
     width: calc(100% / 6 - 1%);
     margin-left: 1%;
@@ -205,4 +208,64 @@ footer .card {
     max-width: 77px;
     max-height: 77px; }
   .connector-card-columns .card-footer {
-    white-space: nowrap; }
+    white-space: nowrap;
+    padding: .75rem .75rem; }
+
+.popover {
+  max-width: 450px;
+  width: auto; }
+
+ul.list-2-columns {
+  column-count: 2;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  list-style-position: inside; }
+
+.content-pricing .popout-row {
+  border: 10px solid #eee;
+  border-left: 20px solid #eee;
+  border-right: 20px solid #eee; }
+  .content-pricing .popout-row td {
+    background-color: #eee;
+    color: #000;
+    font-weight: bold; }
+.content-pricing .collapse.in {
+  display: table-row; }
+.content-pricing .collapsing {
+  -webkit-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s; }
+.content-pricing th, .content-pricing td {
+  vertical-align: middle !important; }
+.content-pricing .text-top td {
+  vertical-align: top !important; }
+.content-pricing .pricing-th1,
+.content-pricing .pricing-th2,
+.content-pricing .pricing-th3,
+.content-pricing .pricing-th4 {
+  vertical-align: middle;
+  width: calc(100%/4);
+  border: 1px solid #fff !important;
+  border-bottom: 0 !important; }
+  .content-pricing .pricing-th1 h3,
+  .content-pricing .pricing-th2 h3,
+  .content-pricing .pricing-th3 h3,
+  .content-pricing .pricing-th4 h3 {
+    margin-bottom: 0; }
+.content-pricing .enterprise {
+  width: 100% !important; }
+  .content-pricing .enterprise .pricing-th1,
+  .content-pricing .enterprise .pricing-th2,
+  .content-pricing .enterprise .pricing-th3 {
+    vertical-align: middle;
+    width: calc(100%/3); }
+    .content-pricing .enterprise .pricing-th1 h3,
+    .content-pricing .enterprise .pricing-th2 h3,
+    .content-pricing .enterprise .pricing-th3 h3 {
+      margin-bottom: 0; }
+.content-pricing [data-toggle="popover"] {
+  cursor: pointer; }
+.content-pricing svg {
+  max-height: 20px; }
+.content-pricing .checkmark {
+  stroke: green; }

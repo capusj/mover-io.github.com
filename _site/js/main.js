@@ -1,5 +1,7 @@
 $(document).ready(function() { 
 
+	$('[data-toggle="popover"]').popover();
+
 	var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 
 	  var FileCounter = (function() {
@@ -13,7 +15,6 @@ $(document).ready(function() {
 	      this.ratePerSecond = parseFloat(this.view.attr('data-rate'));
 	      this.startFiles = parseFloat(this.view.html().stripTags().remove(/\ /g));
 	      this.startTime = parseInt(this.view.attr('data-updated-at'));
-	      console.log(this.step);
 	      this.step.every(1000 / 5);
 	      $(window).scroll(function(event) {
 	        var position = $(document).scrollTop();
