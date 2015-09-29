@@ -1,0 +1,35 @@
+---
+layout: content-page
+title: About Mover
+html_title: About Mover
+---
+
+<div class="container content-main">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 m-t-md">
+      <h2>Why Mover?</h2>
+      <p>Mover exists to better your relationship with data.</p>
+
+      <p>We created Mover to solve pressing problems for ourselves and the whole world using cloud storage. This new paradigm of content creation and data storage presents unique challenges that we are passionate about tackling.</p>
+
+      <p>Our goals are simple: be the best in the world at transporting information, delighting our customers, and being stewards of your data.</p>
+
+      <h2>Our Team</h2>
+      
+      <p>Everyone at Mover is on board with our vision for a massive interconnected web where information isn’t isolated. Each person below is committed to the principle that the world is a better place if you can choose where your data goes.</p>
+    </div>
+    <div class="col-xs-12 col-md-6 m-t-md">
+      <div class="about-card-columns">
+        {% for employee in site.categories.about reversed %}
+          <div class="card card-random-order">
+            <div class="card-img-top" style="background-image: url({{ site.url }}/img/about/{{ employee.image-name }});background-size:cover;height:150px;"></div>
+            <div class="card-footer text-muted text-center">
+              {{ employee.name }}
+              {{ employee.content }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

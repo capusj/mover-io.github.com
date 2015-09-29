@@ -1,0 +1,23 @@
+.about-card-columns {
+  margin-left: -1%;
+  .card {
+    width: calc(100% / 3 - 1%);
+    /*@media #{$xs} {
+      width: calc(100% / 3 - 1%);
+    }
+    @media #{$sm} {
+      width: calc(100% / 3 - 1%);
+    }*/
+    margin-left: 1%;
+    float: left;
+  }
+  img {
+    max-width: 100%;
+  }
+  
+  
+  .card-footer {
+    white-space: nowrap;
+    padding: .75rem .75rem;
+  }
+}

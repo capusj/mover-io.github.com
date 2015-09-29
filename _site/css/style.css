@@ -269,3 +269,28 @@ ul.list-2-columns {
   max-height: 20px; }
 .content-pricing .checkmark {
   stroke: green; }
+
+.pricing-calculator input {
+  width: 75px !important; }
+.pricing-calculator input, .pricing-calculator select {
+  border: 0;
+  border-bottom: 1px dashed #aaa;
+  border-radius: 0; }
+
+.about-card-columns {
+  margin-left: -1%; }
+  .about-card-columns .card {
+    width: calc(100% / 3 - 1%);
+    /*@media (max-width: 768px) {
+      width: calc(100% / 3 - 1%);
+    }
+    @media (min-width: 769px) and (max-width: 991px) {
+      width: calc(100% / 3 - 1%);
+    }*/
+    margin-left: 1%;
+    float: left; }
+  .about-card-columns img {
+    max-width: 100%; }
+  .about-card-columns .card-footer {
+    white-space: nowrap;
+    padding: .75rem .75rem; }

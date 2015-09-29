@@ -80,3 +80,14 @@
   }
 
 }
+
+.pricing-calculator {
+  input {
+    width: 75px !important;
+  }
+  input, select {
+    border: 0;
+    border-bottom: 1px dashed #aaa;
+    border-radius: 0;
+  }
+}

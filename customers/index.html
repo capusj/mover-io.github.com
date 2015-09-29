@@ -1,0 +1,26 @@
+---
+layout: content-page
+title: Customers
+html_title: Customers
+---
+
+<div class="container content-main">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 m-t-md">
+      <h2>Customers</h2>
+      <p>Read about some of our customers.</p>
+    </div>
+    <div class="col-xs-12 col-md-6 m-t-md">
+      {% for case in site.categories.customers %}
+        <a href="{{ site.url }}{{ case.permalink }}">
+          <div class="card" style="width:width: 150px;">
+            <div class="card-img-top" style="background-image: url({{ site.url }}/img/customers/{{ case.logo }});background-size:contain;background-repeat:no-repeat;background-position:center;height:150px;"></div>
+            <div class="card-footer text-muted text-center">
+              {{ case.name }}
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
