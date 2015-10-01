@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <title>Backup, Copy, and Migrate Files Between Cloud Storage Services • Mover</title>
+
+    <!-- Facebook/OpenGraph tags so we show up right in Facebook links/shares -->
+    <meta property="fb:app_id"      content="256846904417736">
+    <meta property="og:type"        content="website">
+    <meta property="og:image"       content="/img/logo-facebook-2138x630.png">
+    <meta property="og:url"         content="https://mover.io">
+    <meta property="og:title"       content="Mover">
+    <meta property="og:site_name"   content="Mover">
+    <meta property="og:description" content="The smarter way to move files. FTP, Dropbox, Box, GoogleDrive, Copy, Egnyte, Amazon S3, SharePoint, MySQL the list goes on!">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- JS in footer -->
+  </head>
+
+<body class="p-t-lg">
+  <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-mover">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="Mover Logo"></a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/connectors">Connectors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+    </ul>
+    <a href="https://app.mover.io" class="btn btn-primary-outline pull-right">Login</a>
+    <a href="https://app.mover.io" class="btn btn-success pull-right m-r">Create Account</a>
+  </div>
+</nav>
+
+
+  <div class="content-blue">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row p-y-lg">
+          <div class="col-xs-12">
+            <h1 class="text-center text-uppercase page-title">Switching to Cloud Storage</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container content-main blog-post">
+    <div class="row">
+      <div class="col-xs-12 col-md-9 m-t-md">
+        <h2 id="switching-to-cloud-storage---mover-blog">Switching to Cloud Storage - Mover Blog</h2>
+
+<p><img src="/img/blog/2014-01-18_header.jpg" alt="" /></p>
+
+<p>It’s the nightmare of any IT professional when the powers-that-be come knocking and announce that they’ve purchased the latest and greatest thing. And it’s your job to migrate everyone. The entire organization’s productivity is in your hands and downtime is a huge no-no. There are several categories of migration nightmare: company email, the sales CRM, and company files. The advent of cloud storage has made things amazing, but only once you’ve managed to cross the chasm.</p>
+
+<p>Don’t despair, you have options!</p>
+
+<h3 id="just-let-it-sync">1. Just let it sync</h3>
+
+<p>Migrating every file your company has isn’t that bad. If you’re a small organization of 2-10 people you can easily teach everyone how simple it is to install the latest sync client for Dropbox, Box, Google Drive, Egnyte, or whoever you’re working with. Dragging and dropping files is a totally legit solution when you’re a small company.</p>
+
+<h5 id="pros">Pros</h5>
+
+<p>You can set this up quickly. There aren’t that many people so you can literally just go talk to everyone, or even work after hours and install the client on their desktop and drag their files to sync.</p>
+
+<p>It’s cheap. Only costs you some time, no big deal.</p>
+
+<h5 id="cons">Cons</h5>
+
+<p>It can end up being a bunch of work. If you have a ton of data it might take a very long time for the sync clients to do their thing. If you have many users this isn’t practical. Do you really want to educate another 50, 500, or 5000 employees on the new “thing” that IT is making them learn?</p>
+
+<h3 id="seed-a-master-account-yourself">2. Seed a master account yourself</h3>
+
+<p>Sometimes you just need to get a ton of data into your new storage provider and then you’ll figure it out from there. Sounds easy, which it can be. Many providers like Egnyte and Box offer classic protocols like FTP. With these you could set up a transfer from something like the office NAS, and just let it run. If you’re really up for a challenge you might even break out the ol’ IDE and write some code by hooking up with a cloud storage API or two.</p>
+
+<h5 id="pros-1">Pros</h5>
+
+<p>Doesn’t bother any other employees until you’re ready to teach them about their new storage. You can babysit the transfer.</p>
+
+<p>If you’re familiar with old school technologies like WebDAV, FTP, SFTP, or you like writing code, this isn’t that bad.</p>
+
+<h5 id="cons-1">Cons</h5>
+
+<p>You have to babysit the transfer. FTP is a well defined but ancient protocol and doesn’t generally offer the ability to do many files at once. If something goes wrong you’ll be fighting to resume the transfer from where it left off. Coding something yourself is even worse than FTP. You’ll be dealing with file naming errors and exceptions until you’re pulling out your hair.</p>
+
+<p>(Edit from PR: Mover loves its cloud storage partners!)</p>
+
+<h3 id="third-party-downloaded-software">3. Third-party downloaded software</h3>
+
+<p>You’re already the smartest one in the office because you know the best tools of the trade. There’s a bunch of different software options to help you with a data migration. Any they’re pretty effective if you have a small number of users or data.</p>
+
+<h5 id="pros-2">Pros</h5>
+
+<p>You’re in command. Just you, you’re three massive monitors, and a bag of cheetos. Install, connect everyone’s accounts, and watch the files move.</p>
+
+<h5 id="cons-2">Cons</h5>
+
+<p>Until your computer crashes, or the next business day rolls around and everyone is wondering why the internet is so slow because you’re hogging all the bandwidth, or you’re only able to move a few files at a time, or you hit API restrictions with your provider. Really any possible problem that keeps you and your awesome desktop the bottleneck for the entire migration is a bad problem to have.</p>
+
+<h3 id="managed-solution-recommended-of-course">4. Managed solution (recommended, of course!)</h3>
+
+<p>If you made it this far, you know what’s coming next. Why are things so hard? Cloud migrations should be simple! You’re moving to greener pastures, it shouldn’t be a massive headache to map all your user data into this awesome new system. Good news: there is a way. Hosted migration tools, like Mover, take care of all the above mentioned problems. Most of them offer some sort of freemium model where you can test a small amount of data, or move a few users, but they come packed with the computing power of “the cloud” to deftly handle any nightmare scenario.</p>
+
+<h5 id="pros-3">Pros</h5>
+
+<p>Managed solutions are hosted and run by professionals. They use their own server infrastructure, which is far greater than the tools you have available. They take care of your files for you. Capabilities such as moving files faster, resuming failures, scheduling, incremental passes, detailed logging, and expert knowledge of this space make a managed solution a no-brainer.</p>
+
+<h5 id="cons-3">Cons</h5>
+
+<p>If you’re moving into the cloud for the first time you’ll still be at the mercy of your internet connection, but a manged solution can alleviate the strain with scheduling migrations for off hours.</p>
+
+<p>As you can see, you have many options. You might need to experiment a bit before you settle on the right option. Of course, here at Mover, where we provide managed solutions, we’re a bit biased. If you ever want our opinion, or some friendly advice, don’t hesitate to call or email us.</p>
+
+<p>If you liked this post then don’t forget to check us out on <a href="https://facebook.com/Mover.io">Facebook</a>, <a href="http://linkedin.com/company/mover">LinkedIn</a>, <a href="https://plus.google.com/+MoverIoUpdates/">Google+</a>, and <a href="https://twitter.com/Mover_io">Twitter</a>.</p>
+
+ 
+      </div>
+      <div class="col-xs-12 col-md-3 m-t-md">
+        <ul>
+          
+            <li>
+              <a href="/blog/2015/09/04/thinking-about-backups/">Thinking About Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/07/24/greener-pastures-for-greenqloud/">Greener Pastures for GreenQloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/19/vital-lessons-from-the-opm-hack/">Vital Lessons from the OPM Hack</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/12/announcing-google-cloud-storage-support/">Announcing Google Cloud Storage Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/05/29/moving-to-google-photos/">Moving to Google Photos</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/12/03/mover-partners-with-dropbox-for-business/">Mover Partners with Dropbox for Business</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/29/incremental-feature-updated/">Incremental Feature Updated</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/18/migrating-to-google-drive/">Migrating to Google Drive</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/07/07/hightail/">Hightail</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/06/17/welcoming-bitcasa/">Welcoming Bitcasa</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/15/rescuing-ubuntu-one/">Rescuing Ubuntu One</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/10/cloud-storage-services-affected-by-heartbleed-bug/">Cloud Storage Services Affected by Heartbleed Bug</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/03/new-pricing-for-2014/">New Pricing for 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/01/how-to-calculate-total-google-drive-for-business-data-storage/">How to Calculate Total Google Drive for Work Data Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/27/world-backup-day-2014/">World Backup Day 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/15/why-we-chose-keen-io/">Why We Chose Keen IO</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/13/paying-for-cloud-storage-is-temporary/">Paying for Cloud Storage is Temporary</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/01/18/switching-to-cloud-storage/">Switching to Cloud Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/20/cloud-closures-remind-us-of-the-importance-of-backups/">Cloud Closures Remind Us of the Importance of Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/13/friday-the-13th-service-outage/">Friday the 13th Service Outage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/10/19-cloud-connectors/">19 Cloud Connectors</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/08/12/mover-adds-copy-support/">Mover Adds Copy Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/07/17/data-gravity/">Data Gravity</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/sec-financial-regulations-rule-17a-and-the-cloud/">SEC Financial Regulations Rule 17a and the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/hipaa-health-regulations-in-the-cloud/">HIPAA Health Regulations in the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/18/sftp-private-key-addition/">SFTP Private Key Addition</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/10/the-forbes-article/">Mover Ranked First in Forbes List of Companies to Watch</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/10/yandex-disk-is-joining-mover/">Yandex.Disk is Joining Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/06/were-merging-backup-box-into-mover/">We're Merging Backup Box Into Mover</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>   
+
+  <div class="content-blue">
+  <div class="container-fluid">
+    <div class="container container-count">
+      <div class="row p-y-lg">
+        <div class="files-moved center-block">
+          <nobr>
+            <div class="file-counter" data-processed="7449074931" data-rate="630" data-updated-at="1394926351">
+              7449074931
+            </div>
+          </nobr>
+          <div class="count-label">
+            — FILES AND COUNTING —
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Company</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="/about">About Mover</a></li>
+            <li><a href="/legal">Legal</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Community</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="http://support.mover.io" target="_blank">Support Home</a></li>
+            <li><a href="https://twitter.com/Mover_io" target="_blank">Twitter</a></li>
+            <li><a href="https://facebook.com/Mover.io" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Contact</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="mailto:sales@mover.io">sales@mover.io</a></li>
+            <li><a href="tel:+18664296424">+1 (866) 429-6424</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 text-center text-small p-b-md">Mover is made with love in Edmonton, Canada</div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+<script src="/js/verge.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/bootstrap-v4-alpha.min.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

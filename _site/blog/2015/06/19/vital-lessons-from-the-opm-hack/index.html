@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <title>Backup, Copy, and Migrate Files Between Cloud Storage Services • Mover</title>
+
+    <!-- Facebook/OpenGraph tags so we show up right in Facebook links/shares -->
+    <meta property="fb:app_id"      content="256846904417736">
+    <meta property="og:type"        content="website">
+    <meta property="og:image"       content="/img/logo-facebook-2138x630.png">
+    <meta property="og:url"         content="https://mover.io">
+    <meta property="og:title"       content="Mover">
+    <meta property="og:site_name"   content="Mover">
+    <meta property="og:description" content="The smarter way to move files. FTP, Dropbox, Box, GoogleDrive, Copy, Egnyte, Amazon S3, SharePoint, MySQL the list goes on!">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- JS in footer -->
+  </head>
+
+<body class="p-t-lg">
+  <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-mover">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="Mover Logo"></a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/connectors">Connectors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+    </ul>
+    <a href="https://app.mover.io" class="btn btn-primary-outline pull-right">Login</a>
+    <a href="https://app.mover.io" class="btn btn-success pull-right m-r">Create Account</a>
+  </div>
+</nav>
+
+
+  <div class="content-blue">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row p-y-lg">
+          <div class="col-xs-12">
+            <h1 class="text-center text-uppercase page-title">Vital Lessons from the OPM Hack</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container content-main blog-post">
+    <div class="row">
+      <div class="col-xs-12 col-md-9 m-t-md">
+        <h2 id="vital-lessons-from-the-opm-hack">Vital Lessons From The OPM Hack</h2>
+
+<p><img src="/img/blog/2015-06-19_blog-security.png" alt="OPM Hack" /></p>
+
+<p>The Office of Personnel Management (OPM), responsible for keeping the records of civilian federal employees in the US, was hacked in April – but this was only recently revealed by the US government.</p>
+
+<p>The whole thing was said to be simply due to social engineering and bad credential management with contractors – <a href="http://www.esecurityplanet.com/network-security/how-to-fight-social-engineering.html">most of which can be combated by education and training</a>.</p>
+
+<p><a href="http://arstechnica.com/security/2015/06/why-the-biggest-government-hack-ever-got-past-opm-dhs-and-nsa/">You can read more about the hack here.</a></p>
+
+<p>We thought it would be beneficial to briefly go over some vital lessons from the OPM hack, as they apply to many legacy enterprise file systems.</p>
+
+<h3 id="auditing-and-access-controls">Auditing and Access Controls</h3>
+
+<p>Once the hackers were in the door (which was apparently a fairly easy process), they were free to run amok. Even worse, though, is that the OPM had a <a href="http://techcrunch.com/2015/06/17/us-government-begins-outreach-to-office-of-personnel-management-hack-victims/">lack of auditing and data management software to understand the scope of the security failure</a>. Additionally, stealing files and sensitive data was easy considering even the lack of basic file encryption.</p>
+
+<p>Modern cloud solutions like <a href="https://mover.io/connectors/box">Box</a> employ numerous encryption techniques, are compliant to a number of government policies, and have expansive <a href="https://www.box.com/business/it-admin-controls/">audit capabilities for IT security administrators</a>. This includes detailed logs of where access is coming from and exactly who’s doing what once they’re in the system.</p>
+
+<h3 id="legacy-systems-are-well-old">Legacy Systems Are, Well… Old</h3>
+
+<p>They’re also becoming more expensive. Finding people with expertise in legacy systems coded with older languages requires a great deal of financial incentive, as most of the people fluent in those methods are retiring.</p>
+
+<p><a href="http://www.fedtechmagazine.com/article/2014/06/governments-cobol-conundrum">OPM was using COBOL</a> for most of their systems, which is a coding language that has <a href="https://en.wikipedia.org/wiki/COBOL">been around since 1959</a> and isn’t getting more popular. For some perspective, here are the job prospects for people fluent in COBOL versus other languages:</p>
+
+<p><img src="/img/blog/2015-06-19_job-trends.png" alt="COBOL Job Prospects" /></p>
+
+<p>Photo credit: <a href="http://www.indeed.com/jobanalytics/jobtrends?q=COBOL%2C+Node.js%2C+Python%2C+Ruby%2C+Objective-C&amp;l=">Indeed.com</a></p>
+
+<p>Newer solutions, whether cloud hosted by third-parties or created by your IT team, have a plethora of resources online for adding extra security, like encryption libraries or open source projects like <a href="https://www.owasp.org">OWASP</a>, dedicated to providing more hardened security tools.</p>
+
+<h3 id="look-to-the-cloud">Look To The Cloud</h3>
+
+<p>Perhaps it’s time for a modern change? Cloud software is hardened against attacks, and offers much less strain on IT Security teams than home-baked legacy systems running antiquated code. Many solutions offer multi-factor authentication in case some user credentials are compromised, and offer web and mobile ready tools for keeping up with trends.</p>
+
+<p>With <a href="https://www.box.com/blog/announcing-department-of-justice/">Box securing files for the US Department of Justice</a> and <a href="http://aws.amazon.com/federal/">Amazon’s introduction of GovCloud</a>, it’s becoming apparent that the cloud is the best option for enterprise file-sharing, collaboration, and large volume data storage – because even the government is doing it.</p>
+
+<p>You should never take information security lightly – <strong>migrate off your legacy systems and into something more secure and cost effective today with Mover</strong>.</p>
+
+<p>Follow us on our <a href="https://twitter.com/Mover_io">Twitter</a>, <a href="https://www.linkedin.com/company/mover">LinkedIn</a>, <a href="https://www.facebook.com/Mover.io">Facebook</a>, and <a href="https://plus.google.com/+MoverIoUpdates/posts">Google+</a> pages for more cloud related news &amp; opinions!</p>
+
+ 
+      </div>
+      <div class="col-xs-12 col-md-3 m-t-md">
+        <ul>
+          
+            <li>
+              <a href="/blog/2015/09/04/thinking-about-backups/">Thinking About Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/07/24/greener-pastures-for-greenqloud/">Greener Pastures for GreenQloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/19/vital-lessons-from-the-opm-hack/">Vital Lessons from the OPM Hack</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/12/announcing-google-cloud-storage-support/">Announcing Google Cloud Storage Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/05/29/moving-to-google-photos/">Moving to Google Photos</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/12/03/mover-partners-with-dropbox-for-business/">Mover Partners with Dropbox for Business</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/29/incremental-feature-updated/">Incremental Feature Updated</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/18/migrating-to-google-drive/">Migrating to Google Drive</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/07/07/hightail/">Hightail</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/06/17/welcoming-bitcasa/">Welcoming Bitcasa</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/15/rescuing-ubuntu-one/">Rescuing Ubuntu One</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/10/cloud-storage-services-affected-by-heartbleed-bug/">Cloud Storage Services Affected by Heartbleed Bug</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/03/new-pricing-for-2014/">New Pricing for 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/01/how-to-calculate-total-google-drive-for-business-data-storage/">How to Calculate Total Google Drive for Work Data Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/27/world-backup-day-2014/">World Backup Day 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/15/why-we-chose-keen-io/">Why We Chose Keen IO</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/13/paying-for-cloud-storage-is-temporary/">Paying for Cloud Storage is Temporary</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/01/18/switching-to-cloud-storage/">Switching to Cloud Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/20/cloud-closures-remind-us-of-the-importance-of-backups/">Cloud Closures Remind Us of the Importance of Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/13/friday-the-13th-service-outage/">Friday the 13th Service Outage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/10/19-cloud-connectors/">19 Cloud Connectors</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/08/12/mover-adds-copy-support/">Mover Adds Copy Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/07/17/data-gravity/">Data Gravity</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/sec-financial-regulations-rule-17a-and-the-cloud/">SEC Financial Regulations Rule 17a and the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/hipaa-health-regulations-in-the-cloud/">HIPAA Health Regulations in the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/18/sftp-private-key-addition/">SFTP Private Key Addition</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/10/the-forbes-article/">Mover Ranked First in Forbes List of Companies to Watch</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/10/yandex-disk-is-joining-mover/">Yandex.Disk is Joining Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/06/were-merging-backup-box-into-mover/">We're Merging Backup Box Into Mover</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>   
+
+  <div class="content-blue">
+  <div class="container-fluid">
+    <div class="container container-count">
+      <div class="row p-y-lg">
+        <div class="files-moved center-block">
+          <nobr>
+            <div class="file-counter" data-processed="7449074931" data-rate="630" data-updated-at="1394926351">
+              7449074931
+            </div>
+          </nobr>
+          <div class="count-label">
+            — FILES AND COUNTING —
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Company</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="/about">About Mover</a></li>
+            <li><a href="/legal">Legal</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Community</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="http://support.mover.io" target="_blank">Support Home</a></li>
+            <li><a href="https://twitter.com/Mover_io" target="_blank">Twitter</a></li>
+            <li><a href="https://facebook.com/Mover.io" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Contact</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="mailto:sales@mover.io">sales@mover.io</a></li>
+            <li><a href="tel:+18664296424">+1 (866) 429-6424</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 text-center text-small p-b-md">Mover is made with love in Edmonton, Canada</div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+<script src="/js/verge.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/bootstrap-v4-alpha.min.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>

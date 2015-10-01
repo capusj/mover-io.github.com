@@ -5,3 +5,6 @@ sass:
 
 gems:
   - jekyll-redirect-from
+
+permalink: pretty
+
