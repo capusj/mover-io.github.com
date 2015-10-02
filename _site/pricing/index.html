@@ -77,17 +77,17 @@
                 <select class="form-control" id="pricing-source">
                   <option>Source</option>
                   <option value="premium">Amazon S3</option>
-                  <option value="personal">Box</option>
+                  <option value="free">Box</option>
                   <option value="enterprise">Box Enterprise</option>
-                  <option value="personal">Copy</option>
-                  <option value="personal">Dropbox</option>
+                  <option value="free">Copy</option>
+                  <option value="free">Dropbox</option>
                   <option value="enterprise">Dropbox for Business</option>
                   <option value="premium">FTP</option>
-                  <option value="personal">Google Drive</option>
+                  <option value="free">Google Drive</option>
                   <option value="enterprise">Google Drive for Work</option>
                   <option value="enterprise">Hightail</option>
                   <option value="premium">MySQL</option>
-                  <option value="personal">OneDrive</option>
+                  <option value="free">OneDrive</option>
                   <option value="enterprise">OneDrive for Business</option>
                   <option value="premium">OpenStack</option>
                   <option value="premium">Rackspace Cloud Files</option>
@@ -96,23 +96,24 @@
                   <option value="premium">SmugMug</option>
                   <option value="premium">SugarSync</option>
                   <option value="premium">WebDAV</option>
-                  <option value="personal">Yandex.Disk</option>
+                  <option value="free">Yandex.Disk</option>
                 </select>
                 to
                 <select class="form-control" id="pricing-destination">
                   <option>Destination</option>
+                  <option value="premium">Mover Vault</option>
                   <option value="premium">Amazon S3</option>
-                  <option value="personal">Box</option>
+                  <option value="free">Box</option>
                   <option value="enterprise">Box Enterprise</option>
-                  <option value="personal">Copy</option>
-                  <option value="personal">Dropbox</option>
+                  <option value="free">Copy</option>
+                  <option value="free">Dropbox</option>
                   <option value="enterprise">Dropbox for Business</option>
                   <option value="premium">FTP</option>
-                  <option value="personal">Google Drive</option>
+                  <option value="free">Google Drive</option>
                   <option value="enterprise">Google Drive for Work</option>
                   <option value="enterprise">Hightail</option>
                   <option value="premium" hidden>MySQL</option>
-                  <option value="personal">OneDrive</option>
+                  <option value="free">OneDrive</option>
                   <option value="enterprise">OneDrive for Business</option>
                   <option value="premium">OpenStack</option>
                   <option value="premium">Rackspace Cloud Files</option>
@@ -121,7 +122,7 @@
                   <option value="premium">SmugMug</option>
                   <option value="premium">SugarSync</option>
                   <option value="premium">WebDAV</option>
-                  <option value="personal">Yandex.Disk</option>
+                  <option value="free">Yandex.Disk</option>
                 </select>
               .</p>
               <p>
@@ -131,7 +132,7 @@
                 users and 
                 </span>
                 <input type="number" min="1" class="form-control" id="pricing-gb" placeholder="#" value="1">
-                gigabytes of data.
+                gigabytes of data<span id="data-monthly" hidden> each month</span>.
               </p>
             </div>
           </form>
@@ -219,9 +220,9 @@
                 <td class="text-left">
                   <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Free Connectors" data-html="true"
                   data-content="
-                    <p>Transfer an unlimited amount of data between personally registered cloud storage accounts.</p>
+                    <p>Transfer an unlimited amount of data between freely registered cloud storage accounts.</p>
                     <p>Eg. Your Gmail Google Drive account is free. Your company's Google Drive account is premium.</p>
-                    <p>Eg. Your personal Dropbox account is free. Your company's Dropbox for Business account is premium.</p>
+                    <p>Eg. Your free Dropbox account is free. Your company's Dropbox for Business account is premium.</p>
                     <p>Free Connectors</p>
                     <ul>
                       <li><a href='/connectors/box'>Box</a>
@@ -407,7 +408,7 @@
             <td class="text-left">
               <a tabindex="0" data-toggle="popover" data-trigger="focus" title="Free Connectors" data-html="true"
               data-content="
-                <p>Personally registered cloud storage accounts.</p>
+                <p>freely registered cloud storage accounts.</p>
                 <p>Free Connectors</p>
                 <ul>
                   <li><a href='/connectors/box'>Box</a>

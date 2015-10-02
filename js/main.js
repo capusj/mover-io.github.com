@@ -13,43 +13,62 @@ $(document).ready(function() {
 		var destination = $('#pricing-destination').val();
 		var unitPrice;
 		var includedData;
+		var includedDataPerUser;
 		var total;
+		var enterprise = source == "enterprise" || destination == "enterprise";
+		var premium = source != "enterprise" && destination != "enterprise";
+		var free = source == "free" && destination == "free";
 
 		if (type == "migrate") {
-			unitPrice = 20;
-			includedDataPerUser = 20;
-			includedData = numUsers * includedDataPerUser;
-			extraData = Math.max(0, extraData - includedData);
-			users.attr("min","1");
-		} else if (type == "backup") {
-			unitPrice = 4;
-			includedDataPerUser = 3;
-			includedData = numUsers * includedDataPerUser;
-			extraData = Math.max(0, extraData - includedData);
-			if (numUsers < 5) {
-				numUsers = 5;
-				users.attr("min","5").val("5");
-			}
-		}
-
-		if (source == "enterprise" || destination == "enterprise") {
-			$('#pricing-users-wrap').removeAttr('hidden');
-		} else {
-			$('#pricing-users-wrap').attr('hidden','hidden');
-		}
-
-		if (source == "personal" && destination == "personal") {
-			total = 0;
-		} else {
-			total = (numUsers * unitPrice) + extraData;
-			if (type == "backup") {
-				total = "Total monthly cost: $" + total;
-			} else {
+			if (enterprise) {
+				$('#pricing-users-wrap').removeAttr('hidden');
+				unitPrice = 20;
+				includedDataPerUser = 20;
+				includedData = numUsers * includedDataPerUser;
+				extraData = Math.max(0, extraData - includedData);
+				users.attr("min","1");
+				total = (numUsers * unitPrice) + extraData;
 				total = "Total one-time cost: $" + total;
 			}
+			if (premium) {
+				$('#pricing-users-wrap').attr('hidden','hidden');
+				unitPrice = 20;
+				total = Math.max(unitPrice, extraData);
+				total = "Total one-time cost: $" + total;
+			}
+			if (free) {
+				total = "$0, this is free!";
+			}
+			$('#data-monthly').attr('hidden','hidden');
+
+
+		} else if (type == "backup") {
+			if (enterprise) {
+				$('#pricing-users-wrap').removeAttr('hidden');
+				unitPrice = 4;
+				includedDataPerUser = 3;
+				includedData = Math.max(5, numUsers) * includedDataPerUser;
+				extraData = Math.max(0, extraData - includedData);
+				if (numUsers < 5) {
+					numUsers = 5;
+					users.attr("min","5").val("5");
+				}
+				total = (numUsers * unitPrice) + extraData;
+				total = "First month: $" + total;
+			}
+			if (premium) {
+				$('#pricing-users-wrap').attr('hidden','hidden');
+				unitPrice = 20;
+				total = Math.max(unitPrice, extraData);
+				total = "Total monthly cost: $" + total;
+			}
+			if (free) {
+				total = "$0, this is free!";
+			}
+			$('#data-monthly').removeAttr('hidden');
 		}
 
-	  $('#pricing-total').text(total);
+		$('#pricing-total').text(total);
 
 	  if (numUsers > 100 || extraData > 1000) {
 	  	$('#bulk-rate-cta').removeAttr('hidden');

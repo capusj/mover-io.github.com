@@ -20,13 +20,28 @@
         {{ content }} 
       </div>
       <div class="col-xs-12 col-md-3 m-t-md">
-        <ul>
+        <!-- <ul>
           {% for post in site.categories.blog %}
             <li>
               <a href="{{ post.url }}">{{ post.title }}</a>
             </li>
           {% endfor %}
-        </ul>
+        </ul> -->
+        {% for post in site.categories.blog %}
+          {% assign currentdate = post.date | date: "%Y" %}
+          {% if currentdate != date %}
+            {% unless forloop.first %}</ul>{% endunless %}
+            <h2 id="y{{post.date | date: "%Y"}}" style="color:#000;font-size:1.5em">{{ currentdate }}</h2>
+            <ul>
+            {% assign date = currentdate %}
+          {% endif %}
+          {% if page.url == post.url %}
+            <li style="list-style:circle">{{ post.title }}</li>
+          {% else %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+          {% endif %}
+          {% if forloop.last %}</ul>{% endif %}
+        {% endfor %}
       </div>
     </div>
   </div>   
