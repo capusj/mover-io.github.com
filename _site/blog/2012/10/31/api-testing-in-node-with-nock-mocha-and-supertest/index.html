@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="icon" type="image/png" href="/img/favicon.png">
+
+    <title>Backup, Copy, and Migrate Files Between Cloud Storage Services • Mover</title>
+
+    <!-- Facebook/OpenGraph tags so we show up right in Facebook links/shares -->
+    <meta property="fb:app_id"      content="256846904417736">
+    <meta property="og:type"        content="website">
+    <meta property="og:image"       content="/img/logo-facebook-2138x630.png">
+    <meta property="og:url"         content="https://mover.io">
+    <meta property="og:title"       content="Mover">
+    <meta property="og:site_name"   content="Mover">
+    <meta property="og:description" content="The smarter way to move files. FTP, Dropbox, Box, GoogleDrive, Copy, Egnyte, Amazon S3, SharePoint, MySQL the list goes on!">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- JS in footer -->
+  </head>
+
+<body class="p-t-lg">
+  <nav class="navbar navbar-fixed-top navbar-light bg-faded navbar-mover">
+  <div class="container">
+    <a class="navbar-brand" href="/"><img src="/img/logo.svg" alt="Mover Logo"></a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/connectors">Connectors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/pricing">Pricing</a>
+      </li>
+    </ul>
+    <a href="https://app.mover.io" class="btn btn-primary-outline pull-right">Login</a>
+    <a href="https://app.mover.io" class="btn btn-success pull-right m-r">Create Account</a>
+  </div>
+</nav>
+
+
+  <div class="content-blue">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row p-y-lg">
+          <div class="col-xs-12">
+            <h1 class="text-center text-uppercase page-title">API Testing in Node (with Mocha, SuperTest, and Nock)</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container content-main blog-post">
+    <div class="row">
+      <div class="col-xs-12 col-md-9 m-t-md">
+        <h2 id="api-testing-in-node-with-mocha-supertest-and-nock">API Testing in Node (with Mocha, Supertest, and Nock)</h2>
+
+<p>An important part of the infrastructure here at Mover is our API Server. It presents the simple interface you see and talks to our complex backend infrastructure that does all the work to deal with myriad services we support. Being the good developers that we are we of course have an extensive test suite around the component. In order to isolate the API code for testing we need to mock both the user input and backend responses. Originally I was worried that we would have to write a lot of mocking framework code to deal with this, but it turns out there are some great tools that do exactly what we wanted.</p>
+
+<h3 id="mocha">Mocha</h3>
+
+<p>For our overall testing framework we’re using<a href="http://tjholowaychuk.com/" title="TJ Holowaychuk's blog"> TJ Holowaychuk</a>’s <a href="http://visionmedia.github.com/mocha/" title="Mocha testing framework">Mocha</a> which has been working out really well. Mocha does all the basic things I’d expect in a testing framework and deals nicely with Node’s asynchronous nature. I won’t tell you too much about Mocha because I think the <a href="http://visionmedia.github.com/mocha/" title="Mocha test framework documentation.">documentation</a> is excellent, so you can check that out. (I’m using <a href="https://github.com/visionmedia/should.js/">Should</a> as an assertion library which lets us do BDD style assertions like <code>result.should.have.status 200</code>. And I’ll be writing these examples in CoffeeScript since we’ve been trying that out.)</p>
+
+<p>A basic test case in Mocha looks something like this:</p>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=mocha-calculator-example.coffee"></script>
+
+<p>The ‘describe’ sections are basically dividing up your tests and the ‘it “should …”’ explains what you’re trying to test.</p>
+
+<p>When testing async code the callback to your test (<code>it "should ...", callback</code>) will take a <code>done</code> param which is a function. You can call that function when you’ve completed all your assertions and Mocha will move on to the next test case.</p>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=mocha-async-example.coffee"></script>
+
+<p>Without adding the <code>done</code> param Mocha will just move on to the next test without waiting for callbacks and you’ll probably see tests pass without anything having been tested. If you specify <code>done</code> but don’t call it anywhere your test will timeout and throw an error.</p>
+
+<h3 id="supertest">Supertest</h3>
+
+<p>Since we’re testing a REST API we need to simulate user requests. We could have set up a test server to run our requests against, but there’s an alternative in Node. We’re using Express which builds on the built-in <code>http.Server</code> object. So, since our server is a simple object we can just deal with that object and build our tests around it. This is exactly what <a href="https://github.com/visionmedia/supertest">SuperTest</a> does.</p>
+
+<p>SuperTest is an HTTP testing library which has a bunch of convenience methods for doing assertions on headers, statuses and response bodies. The one issue is: how do we pass our server object to SuperTest? In most example code you see for Express it’s all one file and you tell the server to listen at the end of the file. In generally this just isn’t good architecture long term and in our case it doesn’t expose that Express server object (‘app’) so that we can pass it to our test code. So at Mover we’ve split things up into a few files make this possible.</p>
+
+<h6 id="configcoffee">config.coffee:</h6>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=express-config.coffee"></script>
+
+<h6 id="routescoffee">routes.coffee:</h6>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=express-router.coffee"></script>
+
+<h6 id="appcoffee">app.coffee:</h6>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=express-app.coffee"></script>
+
+<h6 id="servercoffee">server.coffee:</h6>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=express-server.coffee"></script>
+
+<p>We can start our server with <code>coffee server.coffee</code> (or use Supervisor or Forever) and we can pass around the server object by requiring <code>app.coffee</code>. I won’t commit to saying this method is a best practice for your Express architecture, but it’s been working well for us.</p>
+
+<p>With that architecture in mind we can use SuperTest in our Mocha tests like this:</p>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=mocha-supertest.coffee"></script>
+
+<p>Here we’re validating one of our error cases. If someone doesn’t specify the service they want to connect to (like Dropbox, GoogleDrive, or an FTP server) then we need to send them a helpful error message to get them back on track. SuperTest (referred to in this example by the <code>request</code> variable) takes our server object and we set what we want to send and where to send it and then specify an expected return result. <code>post</code> indicates that we’re sending an HTTP POST request to the <code>/connectors</code> route. We <code>set</code> the <code>Authorization</code> header to authenticate our app to Mover and we <code>send</code> an empty JSON body.</p>
+
+<p>The <code>expect</code> function is checking the response object has the correct status code (400) and the specified response body. We pass the <code>done</code> function to <code>expect</code> so that the test finishes when the expect call is complete.</p>
+
+<h3 id="nock">Nock</h3>
+
+<p>The last issue in testing our code is that most calls to the API server will end up making a call to our backend. Making requests against a test environment isn’t really what we want to do here since we’re trying to isolate the API server and only test that piece. Testing with a full environment could show errors that aren’t in the API code but are somewhere else in the infrastructure which would make debugging more difficult.</p>
+
+<p>Fortunately there’s a great library for mocking responses to HTTP requests called <a href="https://github.com/flatiron/nock">Nock</a>. Nock intercepts HTTP requests and sends back the response you specify. So in the tests when our API code calls the backend, that request is handled by Nock and it returns the response we need for the test.</p>
+
+<p>A common case the API can’t respond to on its own is determining if a folder or database still exists (we generalize to call these collections in Mover). So the API server will need to deal with these missing folder responses from the backend:</p>
+
+<script src="https://gist.github.com/dangerbell/3996194.js?file=mocha-supertest-nock.coffee"></script>
+
+<p>Our use of SuperTest is similar to what we were doing before, but we’re using <code>end</code> to test our expectations instead of <code>expect</code> and I’ll talk about that in a sec. The call to Nock happens looks a lot like the call to SuperTest. The initial call to <code>nock</code> takes the hostname/port to our backend server and the <code>get</code> call specifies what path we’ll be calling on our server. The <code>filteringPath</code> line is to deal with any URL params. We’re not testing that we’re getting the right params here, so we can ignore that. If we didn’t have the filter we’d have to have something like <code>"/backend.php?connector_id=#{connector_id}&amp;collection_id=#{collection_id}"</code> as the parameter to <code>get</code> because Nock matches the URL (and body) exactly. <code>reply</code> is just specifying what the response code will be, but you can give it a body and headers as well or respond with a file.</p>
+
+<p>As I mentioned earlier, our SuperTest code is slightly different. We’re using <code>end</code> instead of <code>expect</code>. <code>end</code> takes a function which will get the response body and we can do any assertions not provided by SuperTest that way. Our assertion in this case (<code>res.should.have.status 404</code>) isn’t very exciting, the interesting part is the <code>scope.done()</code> call. This is verifying that all paths that Nock is supposed to mock have actually been used in the test which is really helpful when tracking down bugs.</p>
+
+<p>That’s how we’re doing API testing at Mover. If you have any suggestions on how we can improve or if you found this post useful we’d love to hear from you. My email is <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#103;&#114;&#101;&#103;&#064;&#109;&#111;&#118;&#101;&#114;&#046;&#105;&#111;">&#103;&#114;&#101;&#103;&#064;&#109;&#111;&#118;&#101;&#114;&#046;&#105;&#111;</a></p>
+
+ 
+      </div>
+      <div class="col-xs-12 col-md-3 m-t-md">
+        <ul>
+          
+            <li>
+              <a href="/blog/2015/09/04/thinking-about-backups/">Thinking About Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/07/24/greener-pastures-for-greenqloud/">Greener Pastures for GreenQloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/19/vital-lessons-from-the-opm-hack/">Vital Lessons from the OPM Hack</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/06/12/announcing-google-cloud-storage-support/">Announcing Google Cloud Storage Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2015/05/29/moving-to-google-photos/">Moving to Google Photos</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/12/03/mover-partners-with-dropbox-for-business/">Mover Partners with Dropbox for Business</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/29/incremental-feature-updated/">Incremental Feature Updated</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/08/18/migrating-to-google-drive/">Migrating to Google Drive</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/07/07/hightail/">Hightail</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/06/17/welcoming-bitcasa/">Welcoming Bitcasa</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/15/rescuing-ubuntu-one/">Rescuing Ubuntu One</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/10/cloud-storage-services-affected-by-heartbleed-bug/">Cloud Storage Services Affected by Heartbleed Bug</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/03/new-pricing-for-2014/">New Pricing for 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/04/01/how-to-calculate-total-google-drive-for-business-data-storage/">How to Calculate Total Google Drive for Work Data Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/27/world-backup-day-2014/">World Backup Day 2014</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/15/why-we-chose-keen-io/">Why We Chose Keen IO</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/03/13/paying-for-cloud-storage-is-temporary/">Paying for Cloud Storage is Temporary</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2014/01/18/switching-to-cloud-storage/">Switching to Cloud Storage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/20/cloud-closures-remind-us-of-the-importance-of-backups/">Cloud Closures Remind Us of the Importance of Backups</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/13/friday-the-13th-service-outage/">Friday the 13th Service Outage</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/09/10/19-cloud-connectors/">19 Cloud Connectors</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/08/12/mover-adds-copy-support/">Mover Adds Copy Support</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/07/17/data-gravity/">Data Gravity</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/sec-financial-regulations-rule-17a-and-the-cloud/">SEC Financial Regulations Rule 17a and the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/25/hipaa-health-regulations-in-the-cloud/">HIPAA Health Regulations in the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/18/sftp-private-key-addition/">SFTP Private Key Addition</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/06/10/the-forbes-article/">Mover Ranked First in Forbes List of Companies to Watch</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/10/yandex-disk-is-joining-mover/">Yandex.Disk is Joining Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/04/06/were-merging-backup-box-into-mover/">We're Merging Backup Box Into Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/03/12/mover-integrates-webdav/">Mover Integrates WebDAV</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/03/07/mover-and-sharepoint/">Mover and SharePoint</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/02/15/smugmug-joins-with-mover/">SmugMug Joins With Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2013/02/14/start-connecting-with-egnyte/">Start Connecting with Egnyte</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/10/31/api-testing-in-node-with-nock-mocha-and-supertest/">API Testing in Node (with Mocha, SuperTest, and Nock)</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/10/07/skydrive-joins-mover/">SkyDrive (now OneDrive) Joins Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/09/05/amazon-s3-added-to-mover/">Amazon S3 Added to Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/28/sftp-is-moving-in/">SFTP is Moving In</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/24/mysql-support-added-to-mover/">MySQL Support Added to Mover</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/18/mover-welcomes-sugarsync/">Mover Welcomes SugarSync</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/15/mover-welcomes-box/">Mover Welcomes Box</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/10/say-hello-to-google-drive/">Say Hello to Google Drive</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/08/value-of-the-cloud/">Value of the Cloud</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/08/mover-adds-ftp/">Mover Adds FTP</a>
+            </li>
+          
+            <li>
+              <a href="/blog/2012/08/06/introducing-mover/">Introducing Mover</a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </div>   
+
+  <div class="content-blue">
+  <div class="container-fluid">
+    <div class="container container-count">
+      <div class="row p-y-lg">
+        <div class="files-moved center-block">
+          <nobr>
+            <div class="file-counter" data-processed="7449074931" data-rate="630" data-updated-at="1394926351">
+              7449074931
+            </div>
+          </nobr>
+          <div class="count-label">
+            — FILES AND COUNTING —
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Company</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="/about">About Mover</a></li>
+            <li><a href="/legal">Legal</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Community</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="http://support.mover.io" target="_blank">Support Home</a></li>
+            <li><a href="https://twitter.com/Mover_io" target="_blank">Twitter</a></li>
+            <li><a href="https://facebook.com/Mover.io" target="_blank">Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card card-block text-center">
+          <h3 class="card-title text-uppercase">Contact</h3>
+          <ul class="list-unstyled text-uppercase">
+            <li><a href="mailto:sales@mover.io">sales@mover.io</a></li>
+            <li><a href="tel:+18664296424">+1 (866) 429-6424</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 text-center text-small p-b-md">Mover is made with love in Edmonton, Canada</div>
+    </div>
+  </div>
+</footer>
+
+<!-- jQuery first, then Bootstrap JS. -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sugar/1.4.1/sugar.min.js"></script>
+<script src="/js/verge.min.js"></script>
+<script src="/js/tether.min.js"></script>
+<script src="/js/bootstrap-v4-alpha.min.js"></script>
+<script src="/js/main.js"></script>
+
+</body>
+</html>
