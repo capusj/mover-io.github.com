@@ -17,4 +17,4 @@ The company was founded in 2010 to be a 100% green solution to public cloud stor
 
 We’re sad to see them go, but wish them luck with their other focus, [QStack – a cloud infrastructure management platform](https://www.qstack.com/), which lets organizations run their own public, private, or hybrid clouds.
 
-For more Mover updates and cloud related news, check us out on [Twitter](https://twitter.com/Mover_io), [LinkedIn](https://www.linkedin.com/company/mover), [Facebook](https://www.facebook.com/Mover.io), and [Google+](https://plus.google.com/+MoverIoUpdates/posts)Gre pages!
+For more Mover updates and cloud related news, check us out on [Twitter](https://twitter.com/Mover_io), [LinkedIn](https://www.linkedin.com/company/mover), [Facebook](https://www.facebook.com/Mover.io), and [Google+](https://plus.google.com/+MoverIoUpdates/posts) pages!
