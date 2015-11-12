@@ -45,4 +45,4 @@ A good thing to keep in mind when talking about cloud security is that most secu
 
 Additionally, all services offer varying degrees of encryption for your data. When Mover moves your files, we also add another layer while in transit. For more information, you can check out our Mover Security Whitepaper.
 
-For more Mover updates and cloud related news, check us out on [Twitter](https://twitter.com/Mover_io), [LinkedIn](https://www.linkedin.com/company/mover), [Facebook](https://www.facebook.com/Mover.io), and [Google+](https://plus.google.com/+MoverIoUpdates/posts)Gre pages!
+For more Mover updates and cloud related news, check us out on [Twitter](https://twitter.com/Mover_io), [LinkedIn](https://www.linkedin.com/company/mover), [Facebook](https://www.facebook.com/Mover.io), and [Google+](https://plus.google.com/+MoverIoUpdates/posts) pages!
